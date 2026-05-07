@@ -2,7 +2,6 @@ import styles from "./NavItem.module.css";
 import { motion } from "framer-motion";
 import { forwardRef } from "react";
 import FadeText from "../../../Ui/fadeText/FadeText";
-// import Tooltip from "../../../Ui/tooltip/Tooltip";
 
 const NavItem = forwardRef(function NavItem(
   {
@@ -19,11 +18,14 @@ const NavItem = forwardRef(function NavItem(
     setIsFirstHovered,
     isFirstItem,
     collapsedShowLabel = false,
-    duration = 0.38,
+    duration = 0.25,
   },
   ref,
 ) {
-  const normalizedDuration = Math.min(Math.max(Number(duration) || 0.38, 0.05), 3);
+  const normalizedDuration = Math.min(
+    Math.max(Number(duration) || 0.25, 0.05),
+    3,
+  );
   const durationScale = normalizedDuration / 0.38;
   const isExpanded = hoveredItem === title || isActive || isFirstHovered;
   const isLabelVisible = collapsedShowLabel || isExpanded;
@@ -41,7 +43,6 @@ const NavItem = forwardRef(function NavItem(
     }[position] ?? styles.activeSingle;
 
   return (
-    // <Tooltip title={title}>
     <div
       ref={ref}
       className={`${styles.navItemContainer} ${isForDisplayOnly ? styles.displayOnlyNavItemContainer : ""} ${positionClass}`}
@@ -72,7 +73,6 @@ const NavItem = forwardRef(function NavItem(
         animate={{
           opacity: isActive ? 1 : 0,
           scale: isActive ? 1 : 0.7,
-          // filter: isActive ? "blur(0px)" : "blur(6px)",
         }}
         transition={{
           opacity: {
@@ -80,13 +80,9 @@ const NavItem = forwardRef(function NavItem(
             ease: [0.22, 1, 0.36, 1],
           },
           scale: {
-            duration: isActive ? 1 : 0.8,
+            duration: isActive ? 0.1 : 0.05,
             ease: [0.22, 1, 0.36, 1],
           },
-          // filter: {
-          //   duration: isActive ? 0.8 : 0.8,
-          //   ease: "easeOut",
-          // },
         }}
         style={{
           willChange: "opacity, transform, filter",
@@ -115,6 +111,7 @@ const NavItem = forwardRef(function NavItem(
           marginLeft: {
             duration: (collapseTitle ? 0.2 : 0.18) * durationScale,
             ease: "easeInOut",
+            delay: collapseTitle ? 0.2 * durationScale : 0,
           },
         }}
         style={{
@@ -140,7 +137,6 @@ const NavItem = forwardRef(function NavItem(
         )}
       </motion.div>
     </div>
-    // </Tooltip>
   );
 });
 

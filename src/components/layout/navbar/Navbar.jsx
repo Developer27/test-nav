@@ -13,7 +13,7 @@ import NavItemSegment from "./navItemSegment/NavItemSegment";
 
 const PRIMARY_COLLAPSED_COUNT = 4;
 
-const DEFAULT_LAYOUT_DURATION = 0.38;
+const DEFAULT_LAYOUT_DURATION = 0.25;
 const getNormalizedDuration = (duration) =>
   Math.min(Math.max(Number(duration) || DEFAULT_LAYOUT_DURATION, 0.05), 3);
 

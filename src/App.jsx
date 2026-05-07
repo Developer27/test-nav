@@ -5,7 +5,7 @@ import Controls from "./components/Ui/controls/Controls";
 import FadeText from "./components/Ui/fadeText/FadeText";
 
 function App() {
-  const [duration, setDuration] = useState(0.38);
+  const [duration, setDuration] = useState(0.25);
   const durationMin = 0.12;
   const durationMax = 1.2;
   const durationStep = 0.01;
