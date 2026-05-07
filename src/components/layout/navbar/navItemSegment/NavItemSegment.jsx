@@ -21,6 +21,7 @@ const NavItemSegment = ({
   setIsFirstHovered,
   firstItemTitle,
   duration,
+  fadeDuration,
   layoutTransition,
 }) => {
   return (
@@ -46,6 +47,7 @@ const NavItemSegment = ({
         setIsFirstHovered={setIsFirstHovered}
         isFirstItem={item.title === firstItemTitle}
         duration={duration}
+        fadeDuration={fadeDuration}
       />
       {hasDividerSlot && <Divider hidden={!isDividerVisible} />}
     </motion.div>

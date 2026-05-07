@@ -18,7 +18,10 @@ const NavItem = forwardRef(function NavItem(
     setIsFirstHovered,
     isFirstItem,
     collapsedShowLabel = false,
+    iconSize = 24,
+    labelGap = 8,
     duration = 0.25,
+    fadeDuration = 0.25,
   },
   ref,
 ) {
@@ -27,6 +30,10 @@ const NavItem = forwardRef(function NavItem(
     3,
   );
   const durationScale = normalizedDuration / 0.38;
+  const normalizedFadeDuration = Math.min(
+    Math.max(Number(fadeDuration) || 0.25, 0.05),
+    3,
+  );
   const isExpanded = hoveredItem === title || isActive || isFirstHovered;
   const isLabelVisible = collapsedShowLabel || isExpanded;
   const shouldAnimateTitle = !isForDisplayOnly;
@@ -90,7 +97,7 @@ const NavItem = forwardRef(function NavItem(
       />
       <Icon
         className={styles.icon}
-        size={isForDisplayOnly ? 16 : 24}
+        size={iconSize}
         style={{
           color: isActive ? "rgba(211, 248, 90, 1)" : "",
         }}
@@ -100,7 +107,7 @@ const NavItem = forwardRef(function NavItem(
         animate={{
           width: collapseTitle ? 0 : "auto",
           opacity: 1,
-          marginLeft: collapseTitle ? 0 : 8,
+          marginLeft: collapseTitle ? 0 : labelGap,
         }}
         transition={{
           width: {
@@ -125,7 +132,7 @@ const NavItem = forwardRef(function NavItem(
           <FadeText
             text={title}
             show={!collapseTitle}
-            duration={normalizedDuration}
+            duration={normalizedFadeDuration}
             className={`${styles.title} ${isActive ? styles.activeTitle : ""} ${isForDisplayOnly ? styles.displayOnlyTitle : ""}`}
           />
         ) : (

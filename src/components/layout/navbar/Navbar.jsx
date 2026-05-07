@@ -22,7 +22,10 @@ const getNormalizedDuration = (duration) =>
 //   ease: navbarLayoutTransition.layout.ease,
 // };
 
-const Navbar = ({ duration = DEFAULT_LAYOUT_DURATION }) => {
+const Navbar = ({
+  duration = DEFAULT_LAYOUT_DURATION,
+  fadeDuration = DEFAULT_LAYOUT_DURATION,
+}) => {
   const normalizedDuration = getNormalizedDuration(duration);
   const navbarLayoutTransition = {
     layout: {
@@ -147,6 +150,7 @@ const Navbar = ({ duration = DEFAULT_LAYOUT_DURATION }) => {
       setIsFirstHovered={setIsFirstHovered}
       firstItemTitle={navLinks[0].title}
       duration={normalizedDuration}
+      fadeDuration={fadeDuration}
       layoutTransition={navbarLayoutTransition}
     />
   );

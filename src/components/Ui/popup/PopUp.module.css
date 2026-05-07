@@ -1,29 +1,75 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+}
+
 .popUp {
-  position: absolute;
+  position: relative;
   background: linear-gradient(180deg,rgba(8, 24, 35, 1) 0%, rgba(10, 40, 51, 0.56) 100%);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(24px);
   color: rgba(255, 255, 255, 1);
-  padding: 12px;
-  min-width: 800px;
-  transform-origin: top center;
-  z-index: 1000;
+  padding: 24px;
+  width: min(100%, 1000px);
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  transform-origin: center center;
   box-sizing: border-box;
   will-change: transform, opacity;
-  overflow: hidden;
 }
 
 .popUpContent {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  isolation: isolate;
 }
 
 .popUpRadioContainer {
   display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  position: relative;
+  overflow: visible;
+}
+
+
+/* Toolbar header styles */
+.toolbarLayoutHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.toolbarLayoutTitleContainer {
+  display: flex;
   flex-direction: column;
   gap: 8px;
+  flex-shrink: 0;
+}
+
+.toolbarLayoutTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.toolbarLayoutDescription {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 22px;
 }
 
 .popUpRadioLabel { 
@@ -38,4 +84,120 @@
 
 .popUpTabsContainer {
   display: flex;
+}
+
+.toolbarLayoutButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  
+  background: transparent;
+
+  transition: background 0.2s ease;
+}
+
+.toolbarLayoutButton:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.toolbarLayoutButtonIcon {
+  color: rgba(255, 255, 255, 0.6);
+  flex-shrink: 0;
+}
+
+.popUpTextContainer{ 
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 175px;
+}
+
+.popUpTextTitle {
+  font-size: 12px;
+  font-weight: 500;
+  width: fit-content;
+}
+
+.popUpTextSubtitle {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  width: fit-content;
+}
+
+
+/* Popup footer styles */
+
+.popUpFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.popUpFooterButtonText {
+  font-size: 12px;
+  color: rgba(211, 248, 90, 1);
+}
+
+.popUpFooterSettingsButtonContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.popUpFooterSettingsButtonIcon{
+  color: rgba(211, 248, 90, 1);
+  flex-shrink: 0;
+}
+
+.popUpFooterButton {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  padding: 6px 12px;
+  border: none;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.activeOutline {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  border: 1px solid rgba(211, 248, 90, 0.4);
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 200;
+}
+
+.activeOutline::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 8px 0 0 8px;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 41, 51, 1) 0%,
+    rgba(211, 248, 90, 1) 8%,
+    rgba(211, 248, 90, 1) 92%,
+    rgba(10, 41, 51, 1) 100%
+  );
+}
+
+.popUpRadioContainer {
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.popUpRadioContainerActive {
+  z-index: 50;
 }

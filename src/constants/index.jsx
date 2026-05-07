@@ -45,18 +45,22 @@ export const DEFAULT_NAV_ITEMS = [
 export const TAB_MODES = [
   {
     id: "expanded",
-    label: "Expanded Tabs",
-  },
-  {
-    id: "iconFirst",
-    label: "Icon-first Tabs",
+    label: "Expanded",
+    subtitle: "Display all creation modes with full labels",
   },
   {
     id: "priorityTabs",
-    label: "Priority Tabs",
+    label: "Priority",
+    subtitle: "Keep main modes visible. Group the rest under “More”.",
+  },
+  {
+    id: "iconFirst",
+    label: "Icon-first",
+    subtitle: "Show compact icon tabs. Labels appear on hover",
   },
   {
     id: "collapsed",
-    label: "Collapsed Tabs",
+    label: "Compact",
+    subtitle: "Show essential tabs only. Collapse the rest under “More”",
   },
 ];

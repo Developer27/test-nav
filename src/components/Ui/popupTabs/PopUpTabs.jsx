@@ -29,11 +29,14 @@ const PopUpTabs = ({ navLinks, activeItem, mode }) => {
                 Icon={item.Icon}
                 title={item.title}
                 isActive={activeItem === item.title}
+                position={index === 0 ? "first" : "single"}
                 mode={prioritizedNavMode}
                 collapsedShowLabel={collapsedShowLabelOnPrimary}
                 isForDisplayOnly={true}
+                iconSize={15}
+                labelGap={5}
               />
-              {hasMore && <Divider />}
+              {index !== 0 && hasMore && <Divider />}
             </div>
           );
         })}
@@ -46,6 +49,8 @@ const PopUpTabs = ({ navLinks, activeItem, mode }) => {
               mode={prioritizedNavMode}
               collapsedShowLabel={true}
               isForDisplayOnly={true}
+              iconSize={15}
+              labelGap={5}
             />
             {hiddenTabItems.length > 0 && <Divider />}
           </div>
@@ -72,10 +77,13 @@ const PopUpTabs = ({ navLinks, activeItem, mode }) => {
               Icon={item.Icon}
               title={item.title}
               isActive={activeItem === item.title}
+              position={index === 0 ? "first" : "single"}
               mode={mode}
               isForDisplayOnly={true}
+              iconSize={15}
+              labelGap={5}
             />
-            {index < navLinks.length - 1 && <Divider />}
+            {index !== 0 && index < navLinks.length - 1 && <Divider />}
           </div>
         );
       })}
