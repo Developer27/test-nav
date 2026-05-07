@@ -1,0 +1,90 @@
+.dropdownTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 100%;
+  align-self: stretch;
+  padding: 4px 10px;
+  margin: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: rgba(155, 157, 162, 1);
+  border-radius: 0 6px 6px 0;
+  transition: color 0.3s ease, background-color 0.2s ease;
+}
+
+.dropdownTrigger:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.dropdownTriggerOpen {
+  color: rgba(211, 248, 90, 1);
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 0 6px 6px 0;
+}
+
+.dropdownTriggerHasActiveInMenu {
+  color: rgba(211, 248, 90, 0.85);
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 0 6px 6px 0;
+}
+
+.dropdownMenu {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  background: rgba(255, 255, 255, 0.04);;
+  /* background: rgba(8, 24, 35, 0.8); */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  backdrop-filter: blur(24px);
+  z-index: 1001;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 4px 12px;
+  border: none;
+  background: transparent;
+  color: rgba(155, 157, 162, 1);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.menuItem:hover {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.menuItemActive {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(211, 248, 90, 1);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.menuItemActive:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}

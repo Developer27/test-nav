@@ -1,0 +1,16 @@
+.controlsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: white;
+  margin-top: 24px;
+  width: 500px;
+}
+
+.controlLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}

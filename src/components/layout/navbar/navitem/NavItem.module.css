@@ -1,0 +1,79 @@
+.navItemContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 4px 12px;
+  cursor: pointer;
+  color: rgba(155, 157, 162, 1);
+  transition: color 0.3s ease;
+  overflow: hidden;
+  border-radius: 6px;
+  z-index: 0;
+}
+
+.activeBackground {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.04);
+
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: -1;
+
+  transform-origin: center;
+  backface-visibility: hidden;
+}
+
+.navItemContainer:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+/* Title styles */
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.activeTitle {
+  color: rgba(211, 248, 90, 1);
+}
+
+.activeSingle {
+  border-radius: 6px;
+}
+
+.activeFirst {
+  border-radius: 6px 0 0 6px;
+}
+
+.activeMiddle {
+  border-radius: 0;
+}
+
+.activeLast {
+  border-radius: 0 6px 6px 0;
+}
+
+
+.icon {
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.displayOnlyNavItemContainer {
+  padding: 2.5px 7.5px;
+  cursor: default;
+  pointer-events: none;
+}
+
+.displayOnlyNavItemContainer:hover {
+  color: rgba(155, 157, 162, 1);
+}
+
+.displayOnlyTitle {
+  font-size: 8.75px;
+}

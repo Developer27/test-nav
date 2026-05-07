@@ -1,0 +1,52 @@
+.radioBtnContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+  cursor: pointer;
+  
+}
+
+.radioBtnInput {
+  display: none;
+}
+
+.radioBtnIndicator {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.radioBtnIndicator.active::before { 
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: linear-gradient(to right,
+      rgba(31, 135, 138, 1),
+      rgba(22, 216, 216, 1),
+      rgba(32, 127, 130, 1));
+
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), rgba(6, 11, 23, 1) 0);
+
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), rgba(6, 11, 23, 1) 0);
+}
+
+.radioBtnIndicatorInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.radioBtnIndicator.active .radioBtnIndicatorInner {
+  background: linear-gradient(to right,
+      rgba(31, 135, 138, 1),
+      rgba(22, 216, 216, 1),
+      rgba(32, 127, 130, 1));
+}
