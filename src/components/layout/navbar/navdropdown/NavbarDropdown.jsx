@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./NavbarDropdown.module.css";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import EllipsesIcon from "../../../icons/ellipsesIcon";
+import EllipsesIcon from "../../../icons/EllipsesIcon";
 import { useClickOutside } from "../../../../hooks/useClickOutside";
 import { useResponsivePosition } from "../../../../hooks/useResponsivePosition";
 

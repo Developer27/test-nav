@@ -1,7 +1,7 @@
 import NavItem from "../../layout/navbar/navitem/NavItem";
 import styles from "./PopUpTabs.module.css";
 import Divider from "../divider/Divider";
-import EllipsesIcon from "../../icons/ellipsesIcon";
+import EllipsesIcon from "../../icons/EllipsesIcon";
 
 const PopUpTabs = ({ navLinks, activeItem, mode }) => {
   if (mode === "collapsed" || mode === "priorityTabs") {
