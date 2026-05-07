@@ -51,7 +51,7 @@ const FadeText = ({ text, show, duration = 0.38, className = "" }) => {
           className={`${styles.fadeText} ${className}`}
         >
           {text.split("").map((char, i) => (
-            <motion.span key={i} variants={letter}>
+            <motion.span key={i} variants={letter} className={styles.fadeTextChar}>
               {char}
             </motion.span>
           ))}

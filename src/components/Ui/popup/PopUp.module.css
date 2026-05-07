@@ -11,6 +11,7 @@
   z-index: 1000;
   box-sizing: border-box;
   will-change: transform, opacity;
+  overflow: hidden;
 }
 
 .popUpContent {

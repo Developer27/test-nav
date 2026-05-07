@@ -27,6 +27,7 @@ const NavItem = forwardRef(function NavItem(
   const durationScale = normalizedDuration / 0.38;
   const isExpanded = hoveredItem === title || isActive || isFirstHovered;
   const isLabelVisible = collapsedShowLabel || isExpanded;
+  const shouldAnimateTitle = !isForDisplayOnly;
   const collapseTitle =
     mode === "collapsed" || mode === "priorityTabs"
       ? !isLabelVisible
@@ -123,17 +124,20 @@ const NavItem = forwardRef(function NavItem(
           flexShrink: 1,
         }}
       >
-        <FadeText
-          text={title}
-          show={!collapseTitle}
-          duration={normalizedDuration}
-          className={`${styles.title} ${isActive ? styles.activeTitle : ""} ${isForDisplayOnly ? styles.displayOnlyTitle : ""}`}
-        />
-        {/* <p
-          className={`${styles.title} ${isActive ? styles.activeTitle : ""} ${isForDisplayOnly ? styles.displayOnlyTitle : ""}`}
-        >
-          {title}
-        </p> */}
+        {shouldAnimateTitle ? (
+          <FadeText
+            text={title}
+            show={!collapseTitle}
+            duration={normalizedDuration}
+            className={`${styles.title} ${isActive ? styles.activeTitle : ""} ${isForDisplayOnly ? styles.displayOnlyTitle : ""}`}
+          />
+        ) : (
+          <p
+            className={`${styles.title} ${isActive ? styles.activeTitle : ""} ${isForDisplayOnly ? styles.displayOnlyTitle : ""}`}
+          >
+            {title}
+          </p>
+        )}
       </motion.div>
     </div>
     // </Tooltip>
