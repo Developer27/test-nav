@@ -26,6 +26,7 @@ const Navbar = ({
   duration = DEFAULT_LAYOUT_DURATION,
   activeBackgroundDuration = 0.3,
   fadeDuration = DEFAULT_LAYOUT_DURATION,
+  fadeOutDuration = DEFAULT_LAYOUT_DURATION,
   hoverDuration = 0.15,
   modalDuration = 0.2,
   dropdownDuration = 0.25,
@@ -157,6 +158,7 @@ const Navbar = ({
       duration={normalizedDuration}
       activeBackgroundDuration={activeBackgroundDuration}
       fadeDuration={fadeDuration}
+      fadeOutDuration={fadeOutDuration}
       hoverDuration={hoverDuration}
       layoutTransition={navbarLayoutTransition}
     />

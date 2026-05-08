@@ -23,6 +23,7 @@ const NavItem = forwardRef(function NavItem(
     duration = 0.3,
     activeBackgroundDuration = 0.3,
     fadeDuration = 0.15,
+    fadeOutDuration = 0.15,
     hoverDuration = 0.15,
   },
   ref,
@@ -34,6 +35,10 @@ const NavItem = forwardRef(function NavItem(
   const durationScale = normalizedDuration / 0.38;
   const normalizedFadeDuration = Math.min(
     Math.max(Number(fadeDuration) || 0.15, 0.05),
+    3,
+  );
+  const normalizedFadeOutDuration = Math.min(
+    Math.max(Number(fadeOutDuration) || 0.15, 0.05),
     3,
   );
   const normalizedActiveBackgroundDuration = Math.min(
@@ -149,7 +154,8 @@ const NavItem = forwardRef(function NavItem(
           <FadeText
             text={title}
             show={!collapseTitle}
-            duration={normalizedFadeDuration}
+            enterDuration={normalizedFadeDuration}
+            exitDuration={normalizedFadeOutDuration}
             className={`${styles.title} ${isActive ? styles.activeTitle : ""} ${isForDisplayOnly ? styles.displayOnlyTitle : ""}`}
           />
         ) : (

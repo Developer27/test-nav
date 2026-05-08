@@ -16,6 +16,11 @@ const Controls = ({
   fadeMin = 0.12,
   fadeMax = 1.2,
   fadeStep = 0.01,
+  fadeOutDuration,
+  setFadeOutDuration,
+  fadeOutMin = 0.12,
+  fadeOutMax = 1.2,
+  fadeOutStep = 0.01,
   hoverDuration,
   setHoverDuration,
   hoverMin = 0.05,
@@ -51,6 +56,10 @@ const Controls = ({
   const normalizedFadeDuration = Math.min(
     Math.max(Number(fadeDuration) || fadeMin, fadeMin),
     fadeMax,
+  );
+  const normalizedFadeOutDuration = Math.min(
+    Math.max(Number(fadeOutDuration) || fadeOutMin, fadeOutMin),
+    fadeOutMax,
   );
   const normalizedHoverDuration = Math.min(
     Math.max(Number(hoverDuration) || hoverMin, hoverMin),
@@ -96,7 +105,7 @@ const Controls = ({
         <p>{normalizedActiveBackgroundDuration.toFixed(2)}s</p>
       </label>
       <label className={styles.controlLabel}>
-        <span>Fade text duration</span>
+        <span>Fade text in duration</span>
         <input
           type="range"
           min={fadeMin}
@@ -107,6 +116,7 @@ const Controls = ({
         />
         <p>{normalizedFadeDuration.toFixed(2)}s</p>
       </label>
+
       <label className={styles.controlLabel}>
         <span>Nav item hover duration</span>
         <input
@@ -118,6 +128,18 @@ const Controls = ({
           onChange={(e) => setHoverDuration(Number(e.target.value))}
         />
         <p>{normalizedHoverDuration.toFixed(2)}s</p>
+      </label>
+      <label className={styles.controlLabel}>
+        <span>Fade text out duration</span>
+        <input
+          type="range"
+          min={fadeOutMin}
+          max={fadeOutMax}
+          step={fadeOutStep}
+          value={normalizedFadeOutDuration}
+          onChange={(e) => setFadeOutDuration(Number(e.target.value))}
+        />
+        <p>{normalizedFadeOutDuration.toFixed(2)}s</p>
       </label>
       <label className={styles.controlLabel}>
         <span>Modal open/close duration</span>

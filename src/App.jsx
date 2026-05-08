@@ -16,6 +16,10 @@ function App() {
   const fadeDurationMin = 0.12;
   const fadeDurationMax = 1.2;
   const fadeDurationStep = 0.01;
+  const [fadeOutDuration, setFadeOutDuration] = useState(0.15);
+  const fadeOutDurationMin = 0.12;
+  const fadeOutDurationMax = 1.2;
+  const fadeOutDurationStep = 0.01;
   const [hoverDuration, setHoverDuration] = useState(0.15);
   const hoverDurationMin = 0.05;
   const hoverDurationMax = 1.2;
@@ -40,6 +44,7 @@ function App() {
         duration={duration}
         activeBackgroundDuration={activeBackgroundDuration}
         fadeDuration={fadeDuration}
+        fadeOutDuration={fadeOutDuration}
         hoverDuration={hoverDuration}
         modalDuration={modalDuration}
         dropdownDuration={dropdownDuration}
@@ -62,6 +67,11 @@ function App() {
           fadeMin={fadeDurationMin}
           fadeMax={fadeDurationMax}
           fadeStep={fadeDurationStep}
+          fadeOutDuration={fadeOutDuration}
+          setFadeOutDuration={setFadeOutDuration}
+          fadeOutMin={fadeOutDurationMin}
+          fadeOutMax={fadeOutDurationMax}
+          fadeOutStep={fadeOutDurationStep}
           hoverDuration={hoverDuration}
           setHoverDuration={setHoverDuration}
           hoverMin={hoverDurationMin}
