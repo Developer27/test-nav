@@ -13,12 +13,12 @@ import NavItemSegment from "./navItemSegment/NavItemSegment";
 
 const PRIMARY_COLLAPSED_COUNT = 4;
 
-const DEFAULT_COLLAPSE_DURATION = 0.2;
+const DEFAULT_COLLAPSE_DURATION = 0.3;
 const DEFAULT_LAYOUT_DURATION = 0.3;
 const DEFAULT_FADE_IN_DURATION = 0.25;
-const DEFAULT_FADE_OUT_DURATION = 0.3;
+const DEFAULT_FADE_OUT_DURATION = 1.2;
 const DEFAULT_HOVER_ENTER_DURATION = 0.15;
-const DEFAULT_HOVER_EXIT_DURATION = 0.4;
+const DEFAULT_HOVER_EXIT_DURATION = 0.5;
 const getNormalizedDuration = (duration) =>
   Math.min(Math.max(Number(duration) || DEFAULT_LAYOUT_DURATION, 0.05), 3);
 

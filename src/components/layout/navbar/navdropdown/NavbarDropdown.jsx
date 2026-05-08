@@ -89,9 +89,11 @@ const NavbarDropdown = ({
             stiffness: 300,
             damping: 20,
           }}
+          style={{}}
+          className={styles.dropdownTriggerIconContainer}
         >
           <DropDownArrowDownIcon
-            size={12}
+            size={13}
             className={styles.dropdownTriggerIcon}
           />
         </motion.span>
@@ -133,8 +135,7 @@ const NavbarDropdown = ({
                 const isActive = activeItem === item.title;
                 return (
                   <li key={item.title}>
-                    <button
-                      type="button"
+                    <div
                       role="menuitem"
                       className={
                         isActive ? styles.menuItemActive : styles.menuItem
@@ -145,8 +146,8 @@ const NavbarDropdown = ({
                       }}
                     >
                       <Icon size={24} />
-                      <span>{item.title}</span>
-                    </button>
+                      <span className={styles.menuItemText}>{item.title}</span>
+                    </div>
                   </li>
                 );
               })}

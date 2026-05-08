@@ -1,12 +1,20 @@
+.dropdownTriggerIconContainer {
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 .dropdownTrigger {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2px;
+  gap: 3px;
   min-width: 40px;
   height: 100%;
   align-self: stretch;
-  padding: 4px 10px;
+  padding: 4px 12px;
   margin: 0;
   border: none;
   background: transparent;
@@ -33,6 +41,7 @@
   font-size: 12px;
   font-weight: 500;
   color: inherit;
+  flex-shrink: 0;
 }
 
 .dropdownTriggerIcon {
@@ -86,12 +95,14 @@
   background: transparent;
   color: rgba(155, 157, 162, 1);
   font-size: 12px;
-  font-weight: 500;
   cursor: pointer;
-  text-align: left;
   transition-property: color, background-color;
   transition-duration: var(--hover-exit-duration, 0.15s);
   transition-timing-function: ease;
+}
+
+.menuItemText {
+  width: fit-content;
 }
 
 .menuItem:hover {
