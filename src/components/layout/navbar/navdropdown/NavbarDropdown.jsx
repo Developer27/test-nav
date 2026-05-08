@@ -108,7 +108,7 @@ const NavbarDropdown = ({
               style={{
                 top: menuPosition.top,
                 left: menuPosition.left,
-                minWidth: Math.max(menuPosition.width),
+                width: "max-content",
               }}
               initial={{
                 opacity: 0,
