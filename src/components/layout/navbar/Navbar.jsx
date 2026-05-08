@@ -50,6 +50,7 @@ const Navbar = ({
   const [activeItem, setActiveItem] = useState(navLinks[0].title);
   const [tabsMode, setTabsMode] = useState("expanded");
   const [isPopUpOpen, setIsPopUpOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [hoveredItem, setHoveredItem] = useState(null);
   const [isFirstHovered, setIsFirstHovered] = useState(false);
 
@@ -108,7 +109,7 @@ const Navbar = ({
     <div className={styles.navbarContainer} style={{ marginTop: "50px" }}>
       <motion.nav
         ref={navbarRef}
-        layout
+        layout="position"
         className={styles.navbar}
         transition={navbarLayoutTransition}
       >
@@ -121,13 +122,15 @@ const Navbar = ({
                   tabsMode,
                   dropdownLinks,
                   showCollapsedOverflowSlot,
+                  hideOverflowDivider:
+                    isDropdownOpen || dropdownTitleSet.has(activeItem),
                   renderNavSegment,
                 });
                 if (dropdownLinks.length > 0) {
                   segments.push(
                     <motion.div
                       key="__overflow"
-                      layout
+                      layout="position"
                       className={styles.navItemWithDivider}
                       transition={navbarLayoutTransition}
                     >
@@ -135,6 +138,7 @@ const Navbar = ({
                         dropdownItems={dropdownLinks}
                         activeItem={activeItem}
                         setActiveItem={setActiveItem}
+                        onOpenChange={setIsDropdownOpen}
                         dropdownDuration={dropdownDuration}
                         hoverEnterDuration={hoverEnterDuration}
                         hoverExitDuration={hoverExitDuration}

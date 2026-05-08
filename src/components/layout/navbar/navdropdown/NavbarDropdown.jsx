@@ -12,6 +12,7 @@ const NavbarDropdown = ({
   dropdownItems,
   activeItem,
   setActiveItem,
+  onOpenChange,
   dropdownDuration = 0.25,
   hoverEnterDuration = 0.15,
   hoverExitDuration = 0.4,
@@ -47,6 +48,10 @@ const NavbarDropdown = ({
   useClickOutside([anchorRef, menuRef], () => {
     setOpen(false);
   });
+
+  useEffect(() => {
+    onOpenChange?.(open);
+  }, [open, onOpenChange]);
 
   useEffect(() => {
     if (!open) return;

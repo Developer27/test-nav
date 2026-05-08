@@ -32,7 +32,7 @@ const NavItemSegment = ({
   return (
     <motion.div
       key={item.title}
-      layout
+      layout="position"
       layoutId={getNavItemLayoutId(item.title)}
       className={styles.navItemWithDivider}
       transition={layoutTransition}

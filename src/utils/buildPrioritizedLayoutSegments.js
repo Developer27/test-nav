@@ -9,6 +9,7 @@ export const buildPrioritizedLayoutSegments = ({
   tabsMode,
   dropdownLinks,
   showCollapsedOverflowSlot,
+  hideOverflowDivider = false,
   renderNavSegment,
 }) => {
   const shownTabItems = navLinks.slice(0, PRIMARY_COLLAPSED_COUNT);
@@ -34,14 +35,18 @@ export const buildPrioritizedLayoutSegments = ({
       : "single";
     const hasMore = index < visibleStripItems.length - 1;
 
-    const isDividerVisible = getDividerVisibility({
+    const shouldHideDividerBeforeOverflow = hasOverflow && !hasMore && hideOverflowDivider;
+    const isDividerVisible = shouldHideDividerBeforeOverflow
+      ? false
+      : getDividerVisibility({
       activeItem,
       item,
       itemPosition,
       nextItem,
       nextItemPosition,
     });
-    const hasDividerSlot = hasMore || (hasOverflow && isDividerVisible);
+    // Keep divider slot before overflow trigger to avoid width jumps.
+    const hasDividerSlot = hasMore || hasOverflow;
 
     const collapsedShowLabelForFirstTabItems =
       tabsMode === "priorityTabs" ||
