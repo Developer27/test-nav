@@ -4,7 +4,7 @@ import Navbar from "./components/layout/navbar/Navbar";
 import Controls from "./components/Ui/controls/Controls";
 
 function App() {
-  const [collapseItemDuration, setCollapseItemDuration] = useState(0.3);
+  const [collapseItemDuration, setCollapseItemDuration] = useState(0.2);
   const collapseItemDurationMin = 0.12;
   const collapseItemDurationMax = 1.2;
   const collapseItemDurationStep = 0.01;
@@ -20,7 +20,7 @@ function App() {
   const fadeDurationMin = 0.12;
   const fadeDurationMax = 1.2;
   const fadeDurationStep = 0.01;
-  const [fadeOutDuration, setFadeOutDuration] = useState(1.2);
+  const [fadeOutDuration, setFadeOutDuration] = useState(0.5);
   const fadeOutDurationMin = 0.12;
   const fadeOutDurationMax = 1.2;
   const fadeOutDurationStep = 0.01;

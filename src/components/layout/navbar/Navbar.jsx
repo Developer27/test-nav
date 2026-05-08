@@ -57,75 +57,6 @@ const Navbar = ({
   const navbarExpandButtonRef = useRef(null);
   const itemRefs = useRef({});
 
-  // const prevTabsModeRef = useRef(tabsMode);
-  // const [activeBgRect, setActiveBgRect] = useState({
-  //   left: 0,
-  //   top: 0,
-  //   width: 0,
-  //   height: 0,
-  //   opacity: 0,
-  // });
-
-  // const updateActiveBgPosition = useCallback(() => {
-  //   const navbarEl = navbarRef.current;
-  //   const activeItemEl = itemRefs.current[activeItem];
-
-  //   if (!navbarEl || !activeItemEl) return;
-
-  //   const navbarRect = navbarEl.getBoundingClientRect();
-  //   const activeRect = activeItemEl.getBoundingClientRect();
-
-  //   setActiveBgRect({
-  //     left: activeRect.left - navbarRect.left,
-  //     top: activeRect.top - navbarRect.top,
-  //     width: activeRect.width,
-  //     height: activeRect.height,
-  //     opacity: 1,
-  //   });
-  // }, [activeItem]);
-
-  // //Use effect to update the active background poistion correctrly when window is resizing
-  // useEffect(() => {
-  //   window.addEventListener("resize", updateActiveBgPosition);
-  //   return () => {
-  //     window.removeEventListener("resize", updateActiveBgPosition);
-  //   };
-  // }, [updateActiveBgPosition]);
-
-  // useEffect(() => {
-  //   const modeChanged = prevTabsModeRef.current !== tabsMode;
-  //   prevTabsModeRef.current = tabsMode;
-
-  //   //Timer to ensure that the active background position is updated correctly after the layout animation completes and not too early
-  //   if (modeChanged) {
-  //     const t = window.setTimeout(
-  //       updateActiveBgPosition,
-  //       navbarLayoutTransition.layout.duration * 1000 + 80,
-  //     );
-  //     return () => window.clearTimeout(t);
-  //   }
-  //   updateActiveBgPosition();
-  // }, [activeItem, tabsMode, updateActiveBgPosition]);
-
-  // //Use effect to update the active background poistion correctrly when item is collapsing / expanding
-  // useEffect(() => {
-  //   const navbarEl = navbarRef.current;
-
-  //   if (!navbarEl || typeof ResizeObserver === "undefined") return;
-
-  //   const resizeObserver = new ResizeObserver(() => {
-  //     updateActiveBgPosition();
-  //   });
-
-  //   resizeObserver.observe(navbarEl);
-  //   Object.values(itemRefs.current).forEach((element) => {
-  //     if (element) resizeObserver.observe(element);
-  //   });
-
-  //   return () => {
-  //     resizeObserver.disconnect();
-  //   };
-  // }, [activeItem, tabsMode, updateActiveBgPosition]);
   const dropdownLinks = useMemo(() => {
     return navLinks.slice(PRIMARY_COLLAPSED_COUNT);
   }, [navLinks]);
@@ -180,14 +111,7 @@ const Navbar = ({
         layout
         className={styles.navbar}
         transition={navbarLayoutTransition}
-        // onLayoutAnimationComplete={updateActiveBgPosition}
       >
-        {/* <motion.div
-          className={styles.activeBackground}
-          initial={false}
-          animate={activeBgRect}
-          transition={activeBackgroundTransition}
-        /> */}
         <LayoutGroup>
           {isPrioritizedModeLayout
             ? (() => {
