@@ -20,28 +20,28 @@ const NavItem = forwardRef(function NavItem(
     collapsedShowLabel = false,
     iconSize = 24,
     labelGap = 8,
-    duration = 0.25,
-    activeBackgroundDuration = 1,
-    fadeDuration = 0.25,
-    hoverDuration = 0.3,
+    duration = 0.3,
+    activeBackgroundDuration = 0.3,
+    fadeDuration = 0.15,
+    hoverDuration = 0.15,
   },
   ref,
 ) {
   const normalizedDuration = Math.min(
-    Math.max(Number(duration) || 0.25, 0.05),
+    Math.max(Number(duration) || 0.3, 0.05),
     3,
   );
   const durationScale = normalizedDuration / 0.38;
   const normalizedFadeDuration = Math.min(
-    Math.max(Number(fadeDuration) || 0.25, 0.05),
+    Math.max(Number(fadeDuration) || 0.15, 0.05),
     3,
   );
   const normalizedActiveBackgroundDuration = Math.min(
-    Math.max(Number(activeBackgroundDuration) || 1, 0.05),
+    Math.max(Number(activeBackgroundDuration) || 0.3, 0.05),
     3,
   );
   const normalizedHoverDuration = Math.min(
-    Math.max(Number(hoverDuration) || 0.3, 0.05),
+    Math.max(Number(hoverDuration) || 0.15, 0.05),
     3,
   );
   const isExpanded = hoveredItem === title || isActive || isFirstHovered;

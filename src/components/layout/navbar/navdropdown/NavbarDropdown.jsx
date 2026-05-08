@@ -12,15 +12,15 @@ const NavbarDropdown = ({
   dropdownItems,
   activeItem,
   setActiveItem,
-  dropdownDuration = 0.2,
-  hoverDuration = 0.3,
+  dropdownDuration = 0.25,
+  hoverDuration = 0.15,
 }) => {
   const normalizedDropdownDuration = Math.min(
-    Math.max(Number(dropdownDuration) || 0.2, 0.05),
+    Math.max(Number(dropdownDuration) || 0.25, 0.05),
     3,
   );
   const normalizedHoverDuration = Math.min(
-    Math.max(Number(hoverDuration) || 0.3, 0.05),
+    Math.max(Number(hoverDuration) || 0.15, 0.05),
     3,
   );
   const anchorRef = useRef(null);

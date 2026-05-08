@@ -13,8 +13,8 @@
   cursor: pointer;
   color: rgba(155, 157, 162, 1);
   border-radius: 0 6px 6px 0;
-  transition: color var(--hover-duration, 0.3s) ease,
-    background-color var(--hover-duration, 0.2s) ease;
+  transition: color var(--hover-duration, 0.15s) ease,
+    background-color var(--hover-duration, 0.15s) ease;
 }
 
 .dropdownTrigger:not(.dropdownTriggerOpen):not(.dropdownTriggerHasActiveInMenu):hover {
@@ -35,7 +35,7 @@
 
 .dropdownTriggerIcon {
   color: rgba(155, 157, 162, 1);
-  transition: color var(--hover-duration, 0.2s) ease;
+  transition: color var(--hover-duration, 0.15s) ease;
 }
 
 .dropdownTrigger:not(.dropdownTriggerOpen):not(.dropdownTriggerHasActiveInMenu):hover .dropdownTriggerIcon {
@@ -84,7 +84,8 @@
   font-weight: 500;
   cursor: pointer;
   text-align: left;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition: color var(--hover-duration, 0.15s) ease,
+    background-color var(--hover-duration, 0.15s) ease;
 }
 
 .menuItem:hover {
@@ -105,7 +106,8 @@
   font-weight: 500;
   cursor: pointer;
   text-align: left;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition: color var(--hover-duration, 0.15s) ease,
+    background-color var(--hover-duration, 0.15s) ease;
 }
 
 .menuItemActive:hover {

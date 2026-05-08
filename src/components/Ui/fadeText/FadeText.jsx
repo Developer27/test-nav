@@ -1,9 +1,9 @@
 import styles from "./FadeText.module.css";
 import { motion, AnimatePresence } from "framer-motion";
 
-const FadeText = ({ text, show, duration = 0.25, className = "" }) => {
+const FadeText = ({ text, show, duration = 0.15, className = "" }) => {
   const normalizedDuration = Math.min(
-    Math.max(Number(duration) || 0.25, 0.05),
+    Math.max(Number(duration) || 0.15, 0.05),
     3,
   );
   const durationScale = normalizedDuration / 0.38;

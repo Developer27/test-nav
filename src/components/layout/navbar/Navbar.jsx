@@ -13,7 +13,7 @@ import NavItemSegment from "./navItemSegment/NavItemSegment";
 
 const PRIMARY_COLLAPSED_COUNT = 4;
 
-const DEFAULT_LAYOUT_DURATION = 0.25;
+const DEFAULT_LAYOUT_DURATION = 0.3;
 const getNormalizedDuration = (duration) =>
   Math.min(Math.max(Number(duration) || DEFAULT_LAYOUT_DURATION, 0.05), 3);
 
@@ -24,11 +24,11 @@ const getNormalizedDuration = (duration) =>
 
 const Navbar = ({
   duration = DEFAULT_LAYOUT_DURATION,
-  activeBackgroundDuration = 1,
+  activeBackgroundDuration = 0.3,
   fadeDuration = DEFAULT_LAYOUT_DURATION,
-  hoverDuration = 0.3,
+  hoverDuration = 0.15,
   modalDuration = 0.2,
-  dropdownDuration = 0.2,
+  dropdownDuration = 0.25,
   popupBorderDuration = 0.2,
 }) => {
   const normalizedDuration = getNormalizedDuration(duration);

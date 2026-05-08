@@ -4,19 +4,19 @@ import Navbar from "./components/layout/navbar/Navbar";
 import Controls from "./components/Ui/controls/Controls";
 
 function App() {
-  const [duration, setDuration] = useState(0.25);
+  const [duration, setDuration] = useState(0.3);
   const durationMin = 0.12;
   const durationMax = 1.2;
   const durationStep = 0.01;
-  const [activeBackgroundDuration, setActiveBackgroundDuration] = useState(1);
+  const [activeBackgroundDuration, setActiveBackgroundDuration] = useState(0.3);
   const activeBackgroundDurationMin = 0.05;
   const activeBackgroundDurationMax = 5;
   const activeBackgroundDurationStep = 0.01;
-  const [fadeDuration, setFadeDuration] = useState(0.25);
+  const [fadeDuration, setFadeDuration] = useState(0.15);
   const fadeDurationMin = 0.12;
   const fadeDurationMax = 1.2;
   const fadeDurationStep = 0.01;
-  const [hoverDuration, setHoverDuration] = useState(0.3);
+  const [hoverDuration, setHoverDuration] = useState(0.15);
   const hoverDurationMin = 0.05;
   const hoverDurationMax = 1.2;
   const hoverDurationStep = 0.01;
@@ -24,7 +24,7 @@ function App() {
   const modalDurationMin = 0.05;
   const modalDurationMax = 1.2;
   const modalDurationStep = 0.01;
-  const [dropdownDuration, setDropdownDuration] = useState(0.2);
+  const [dropdownDuration, setDropdownDuration] = useState(0.25);
   const dropdownDurationMin = 0.05;
   const dropdownDurationMax = 1.2;
   const dropdownDurationStep = 0.01;

@@ -6,7 +6,7 @@
   padding: 4px 12px;
   cursor: pointer;
   color: rgba(155, 157, 162, 1);
-  transition: color var(--hover-duration, 0.3s) ease;
+  transition: color var(--hover-duration, 0.15s) ease;
   overflow: hidden;
   border-radius: 6px;
   z-index: 0;
@@ -35,7 +35,7 @@
   font-weight: 500;
   margin: 0;
   color: inherit;
-  transition: color var(--hover-duration, 0.3s) ease;
+  transition: color var(--hover-duration, 0.15s) ease;
 }
 
 .activeTitle {
@@ -61,7 +61,7 @@
 
 .icon {
   color: inherit;
-  transition: color var(--hover-duration, 0.3s) ease;
+  transition: color var(--hover-duration, 0.15s) ease;
 }
 
 .displayOnlyNavItemContainer {
