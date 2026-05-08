@@ -105,6 +105,7 @@
 
 .menuItemText {
   width: fit-content;
+  will-change: transform, opacity;
 }
 
 .menuItem:hover {
