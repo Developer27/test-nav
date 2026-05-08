@@ -18,19 +18,28 @@ const FadeText = ({
     Math.max(Number(exitDuration) || fallbackDuration, 0.05),
     3,
   );
-  const enterDurationScale = normalizedEnterDuration / 0.38;
-  const exitDurationScale = normalizedExitDuration / 0.38;
+  const charCount = Math.max(text.length, 1);
+  const enterLetterDuration = normalizedEnterDuration * 0.45;
+  const exitLetterDuration = normalizedExitDuration * 0.45;
+  const enterStagger =
+    charCount > 1
+      ? (normalizedEnterDuration - enterLetterDuration) / (charCount - 1)
+      : 0;
+  const exitStagger =
+    charCount > 1
+      ? (normalizedExitDuration - exitLetterDuration) / (charCount - 1)
+      : 0;
   const container = {
     hidden: {},
     show: {
       transition: {
-        staggerChildren: 0.03 * enterDurationScale,
+        staggerChildren: enterStagger,
         staggerDirection: 1,
       },
     },
     exit: {
       transition: {
-        staggerChildren: 0.02 * exitDurationScale,
+        staggerChildren: exitStagger,
         staggerDirection: -1,
       },
     },
@@ -42,13 +51,13 @@ const FadeText = ({
       opacity: 1,
       x: 0,
       filter: "blur(0px)",
-      transition: { duration: 0.2 * enterDurationScale },
+      transition: { duration: enterLetterDuration },
     },
     exit: {
       opacity: 0,
       x: 8,
       filter: "blur(4px)",
-      transition: { duration: 0.16 * exitDurationScale },
+      transition: { duration: exitLetterDuration },
     },
   };
 

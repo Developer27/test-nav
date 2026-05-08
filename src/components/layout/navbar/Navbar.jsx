@@ -28,7 +28,8 @@ const Navbar = ({
   activeBackgroundDuration = 0.3,
   fadeDuration = DEFAULT_LAYOUT_DURATION,
   fadeOutDuration = DEFAULT_LAYOUT_DURATION,
-  hoverDuration = 0.15,
+  hoverEnterDuration = 0.15,
+  hoverExitDuration = 0.15,
   modalDuration = 0.2,
   dropdownDuration = 0.25,
   popupBorderDuration = 0.2,
@@ -161,7 +162,8 @@ const Navbar = ({
       activeBackgroundDuration={activeBackgroundDuration}
       fadeDuration={fadeDuration}
       fadeOutDuration={fadeOutDuration}
-      hoverDuration={hoverDuration}
+      hoverEnterDuration={hoverEnterDuration}
+      hoverExitDuration={hoverExitDuration}
       layoutTransition={navbarLayoutTransition}
     />
   );
@@ -205,7 +207,8 @@ const Navbar = ({
                         activeItem={activeItem}
                         setActiveItem={setActiveItem}
                         dropdownDuration={dropdownDuration}
-                        hoverDuration={hoverDuration}
+                        hoverEnterDuration={hoverEnterDuration}
+                        hoverExitDuration={hoverExitDuration}
                       />
                     </motion.div>,
                   );

@@ -13,12 +13,14 @@
   cursor: pointer;
   color: rgba(155, 157, 162, 1);
   border-radius: 0 6px 6px 0;
-  transition: color var(--hover-duration, 0.15s) ease,
-    background-color var(--hover-duration, 0.15s) ease;
+  transition-property: color, background-color;
+  transition-duration: var(--hover-exit-duration, 0.15s);
+  transition-timing-function: ease;
 }
 
 .dropdownTrigger:not(.dropdownTriggerOpen):not(.dropdownTriggerHasActiveInMenu):hover {
   color: rgba(255, 255, 255, 1);
+  transition-duration: var(--hover-enter-duration, 0.15s);
 }
 
 .dropdownTriggerOpen {
@@ -35,11 +37,14 @@
 
 .dropdownTriggerIcon {
   color: rgba(155, 157, 162, 1);
-  transition: color var(--hover-duration, 0.15s) ease;
+  transition-property: color;
+  transition-duration: var(--hover-exit-duration, 0.15s);
+  transition-timing-function: ease;
 }
 
 .dropdownTrigger:not(.dropdownTriggerOpen):not(.dropdownTriggerHasActiveInMenu):hover .dropdownTriggerIcon {
   color: inherit;
+  transition-duration: var(--hover-enter-duration, 0.15s);
 }
 
 .dropdownTriggerOpen .dropdownTriggerIcon,
@@ -84,13 +89,15 @@
   font-weight: 500;
   cursor: pointer;
   text-align: left;
-  transition: color var(--hover-duration, 0.15s) ease,
-    background-color var(--hover-duration, 0.15s) ease;
+  transition-property: color, background-color;
+  transition-duration: var(--hover-exit-duration, 0.15s);
+  transition-timing-function: ease;
 }
 
 .menuItem:hover {
   color: rgba(255, 255, 255, 1);
   background-color: rgba(255, 255, 255, 0.06);
+  transition-duration: var(--hover-enter-duration, 0.15s);
 }
 
 .menuItemActive {
@@ -106,10 +113,12 @@
   font-weight: 500;
   cursor: pointer;
   text-align: left;
-  transition: color var(--hover-duration, 0.15s) ease,
-    background-color var(--hover-duration, 0.15s) ease;
+  transition-property: color, background-color;
+  transition-duration: var(--hover-exit-duration, 0.15s);
+  transition-timing-function: ease;
 }
 
 .menuItemActive:hover {
   background-color: rgba(255, 255, 255, 0.08);
+  transition-duration: var(--hover-enter-duration, 0.15s);
 }

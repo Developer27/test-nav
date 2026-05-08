@@ -6,7 +6,9 @@
   padding: 4px 12px;
   cursor: pointer;
   color: rgba(155, 157, 162, 1);
-  transition: color var(--hover-duration, 0.15s) ease;
+  transition-property: color;
+  transition-duration: var(--hover-exit-duration, 0.15s);
+  transition-timing-function: ease;
   overflow: hidden;
   border-radius: 6px;
   z-index: 0;
@@ -27,6 +29,12 @@
 
 .navItemContainer:hover {
   color: rgba(255, 255, 255, 1);
+  transition-duration: var(--hover-enter-duration, 0.15s);
+}
+
+.navItemContainer:hover .title,
+.navItemContainer:hover .icon {
+  transition-duration: var(--hover-enter-duration, 0.15s);
 }
 
 /* Title styles */
@@ -35,7 +43,9 @@
   font-weight: 500;
   margin: 0;
   color: inherit;
-  transition: color var(--hover-duration, 0.15s) ease;
+  transition-property: color;
+  transition-duration: var(--hover-exit-duration, 0.15s);
+  transition-timing-function: ease;
 }
 
 .activeTitle {
@@ -61,7 +71,9 @@
 
 .icon {
   color: inherit;
-  transition: color var(--hover-duration, 0.15s) ease;
+  transition-property: color;
+  transition-duration: var(--hover-exit-duration, 0.15s);
+  transition-timing-function: ease;
 }
 
 .displayOnlyNavItemContainer {

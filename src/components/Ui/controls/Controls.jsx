@@ -26,11 +26,16 @@ const Controls = ({
   fadeOutMin = 0.12,
   fadeOutMax = 1.2,
   fadeOutStep = 0.01,
-  hoverDuration,
-  setHoverDuration,
-  hoverMin = 0.05,
-  hoverMax = 1.2,
-  hoverStep = 0.01,
+  hoverEnterDuration,
+  setHoverEnterDuration,
+  hoverEnterMin = 0.05,
+  hoverEnterMax = 1.2,
+  hoverEnterStep = 0.01,
+  hoverExitDuration,
+  setHoverExitDuration,
+  hoverExitMin = 0.05,
+  hoverExitMax = 1.2,
+  hoverExitStep = 0.01,
   modalDuration,
   setModalDuration,
   modalMin = 0.05,
@@ -70,9 +75,13 @@ const Controls = ({
     Math.max(Number(fadeOutDuration) || fadeOutMin, fadeOutMin),
     fadeOutMax,
   );
-  const normalizedHoverDuration = Math.min(
-    Math.max(Number(hoverDuration) || hoverMin, hoverMin),
-    hoverMax,
+  const normalizedHoverEnterDuration = Math.min(
+    Math.max(Number(hoverEnterDuration) || hoverEnterMin, hoverEnterMin),
+    hoverEnterMax,
+  );
+  const normalizedHoverExitDuration = Math.min(
+    Math.max(Number(hoverExitDuration) || hoverExitMin, hoverExitMin),
+    hoverExitMax,
   );
   const normalizedModalDuration = Math.min(
     Math.max(Number(modalDuration) || modalMin, modalMin),
@@ -114,16 +123,16 @@ const Controls = ({
         <p>{normalizedExpandItemDuration.toFixed(2)}s</p>
       </label>
       <label className={styles.controlLabel}>
-        <span>Active nav item background duration</span>
+        <span>Fade text out duration</span>
         <input
           type="range"
-          min={activeBackgroundMin}
-          max={activeBackgroundMax}
-          step={activeBackgroundStep}
-          value={normalizedActiveBackgroundDuration}
-          onChange={(e) => setActiveBackgroundDuration(Number(e.target.value))}
+          min={fadeOutMin}
+          max={fadeOutMax}
+          step={fadeOutStep}
+          value={normalizedFadeOutDuration}
+          onChange={(e) => setFadeOutDuration(Number(e.target.value))}
         />
-        <p>{normalizedActiveBackgroundDuration.toFixed(2)}s</p>
+        <p>{normalizedFadeOutDuration.toFixed(2)}s</p>
       </label>
       <label className={styles.controlLabel}>
         <span>Fade text in duration</span>
@@ -137,31 +146,44 @@ const Controls = ({
         />
         <p>{normalizedFadeDuration.toFixed(2)}s</p>
       </label>
+      <label className={styles.controlLabel}>
+        <span>Nav item hover exit duration</span>
+        <input
+          type="range"
+          min={hoverExitMin}
+          max={hoverExitMax}
+          step={hoverExitStep}
+          value={normalizedHoverExitDuration}
+          onChange={(e) => setHoverExitDuration(Number(e.target.value))}
+        />
+        <p>{normalizedHoverExitDuration.toFixed(2)}s</p>
+      </label>
 
       <label className={styles.controlLabel}>
-        <span>Nav item hover duration</span>
+        <span>Nav item hover enter duration</span>
         <input
           type="range"
-          min={hoverMin}
-          max={hoverMax}
-          step={hoverStep}
-          value={normalizedHoverDuration}
-          onChange={(e) => setHoverDuration(Number(e.target.value))}
+          min={hoverEnterMin}
+          max={hoverEnterMax}
+          step={hoverEnterStep}
+          value={normalizedHoverEnterDuration}
+          onChange={(e) => setHoverEnterDuration(Number(e.target.value))}
         />
-        <p>{normalizedHoverDuration.toFixed(2)}s</p>
+        <p>{normalizedHoverEnterDuration.toFixed(2)}s</p>
       </label>
       <label className={styles.controlLabel}>
-        <span>Fade text out duration</span>
+        <span>Active nav item background duration</span>
         <input
           type="range"
-          min={fadeOutMin}
-          max={fadeOutMax}
-          step={fadeOutStep}
-          value={normalizedFadeOutDuration}
-          onChange={(e) => setFadeOutDuration(Number(e.target.value))}
+          min={activeBackgroundMin}
+          max={activeBackgroundMax}
+          step={activeBackgroundStep}
+          value={normalizedActiveBackgroundDuration}
+          onChange={(e) => setActiveBackgroundDuration(Number(e.target.value))}
         />
-        <p>{normalizedFadeOutDuration.toFixed(2)}s</p>
+        <p>{normalizedActiveBackgroundDuration.toFixed(2)}s</p>
       </label>
+
       <label className={styles.controlLabel}>
         <span>Modal open/close duration</span>
         <input

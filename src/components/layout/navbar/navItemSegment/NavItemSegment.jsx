@@ -25,7 +25,8 @@ const NavItemSegment = ({
   activeBackgroundDuration,
   fadeDuration,
   fadeOutDuration,
-  hoverDuration,
+  hoverEnterDuration,
+  hoverExitDuration,
   layoutTransition,
 }) => {
   return (
@@ -55,7 +56,8 @@ const NavItemSegment = ({
         activeBackgroundDuration={activeBackgroundDuration}
         fadeDuration={fadeDuration}
         fadeOutDuration={fadeOutDuration}
-        hoverDuration={hoverDuration}
+        hoverEnterDuration={hoverEnterDuration}
+        hoverExitDuration={hoverExitDuration}
       />
       {hasDividerSlot && <Divider hidden={!isDividerVisible} />}
     </motion.div>

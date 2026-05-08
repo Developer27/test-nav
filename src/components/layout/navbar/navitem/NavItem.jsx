@@ -25,7 +25,8 @@ const NavItem = forwardRef(function NavItem(
     activeBackgroundDuration = 0.3,
     fadeDuration = 0.15,
     fadeOutDuration = 0.15,
-    hoverDuration = 0.15,
+    hoverEnterDuration = 0.15,
+    hoverExitDuration = 0.15,
   },
   ref,
 ) {
@@ -51,9 +52,17 @@ const NavItem = forwardRef(function NavItem(
     Math.max(Number(activeBackgroundDuration) || 0.3, 0.05),
     3,
   );
-  const normalizedHoverDuration = Math.min(
-    Math.max(Number(hoverDuration) || 0.15, 0.05),
+  const normalizedHoverEnterDuration = Math.min(
+    Math.max(Number(hoverEnterDuration) || 0.15, 0.05),
     3,
+  );
+  const normalizedHoverExitDuration = Math.min(
+    Math.max(Number(hoverExitDuration) || 0.15, 0.05),
+    3,
+  );
+  const effectiveHoverExitDuration = Math.max(
+    normalizedHoverExitDuration,
+    normalizedFadeOutDuration,
   );
   const isExpanded = hoveredItem === title || isActive || isFirstHovered;
   const isLabelVisible = collapsedShowLabel || isExpanded;
@@ -76,7 +85,8 @@ const NavItem = forwardRef(function NavItem(
       className={`${styles.navItemContainer} ${isForDisplayOnly ? styles.displayOnlyNavItemContainer : ""} ${positionClass}`}
       role={isForDisplayOnly ? "presentation" : undefined}
       style={{
-        "--hover-duration": `${normalizedHoverDuration}s`,
+        "--hover-enter-duration": `${normalizedHoverEnterDuration}s`,
+        "--hover-exit-duration": `${effectiveHoverExitDuration}s`,
       }}
       onClick={
         isForDisplayOnly
