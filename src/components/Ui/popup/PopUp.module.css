@@ -24,6 +24,7 @@
   transform-origin: center center;
   box-sizing: border-box;
   will-change: transform, opacity;
+
 }
 
 .popUpContent {
@@ -50,6 +51,7 @@
 .toolbarLayoutHeader {
   display: flex;
   justify-content: space-between;
+  letter-spacing: 0.03em;
 }
 
 .toolbarLayoutTitleContainer {
@@ -136,7 +138,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 32px;
+  margin-top: 12px;
 }
 
 .popUpFooterButtonText {

@@ -33,7 +33,6 @@ export const buildPrioritizedLayoutSegments = ({
       ? getStripItemPosition(index + 1, navItemsCount, hasOverflow)
       : "single";
     const hasMore = index < visibleStripItems.length - 1;
-    const hasDividerSlot = hasMore || hasOverflow;
 
     const isDividerVisible = getDividerVisibility({
       activeItem,
@@ -42,6 +41,7 @@ export const buildPrioritizedLayoutSegments = ({
       nextItem,
       nextItemPosition,
     });
+    const hasDividerSlot = hasMore || (hasOverflow && isDividerVisible);
 
     const collapsedShowLabelForFirstTabItems =
       tabsMode === "priorityTabs" ||

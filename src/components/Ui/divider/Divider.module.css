@@ -9,7 +9,5 @@
 
 .hiddenDivider {
   opacity: 0;
-  width: 0;
-  flex-basis: 0;
   pointer-events: none;
 }
