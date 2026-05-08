@@ -20,7 +20,8 @@ const NavItemSegment = ({
   isFirstHovered,
   setIsFirstHovered,
   firstItemTitle,
-  duration,
+  collapseItemDuration,
+  expandItemDuration,
   activeBackgroundDuration,
   fadeDuration,
   fadeOutDuration,
@@ -49,7 +50,8 @@ const NavItemSegment = ({
         isFirstHovered={isFirstHovered}
         setIsFirstHovered={setIsFirstHovered}
         isFirstItem={item.title === firstItemTitle}
-        duration={duration}
+        collapseItemDuration={collapseItemDuration}
+        expandItemDuration={expandItemDuration}
         activeBackgroundDuration={activeBackgroundDuration}
         fadeDuration={fadeDuration}
         fadeOutDuration={fadeOutDuration}

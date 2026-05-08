@@ -4,10 +4,14 @@ import Navbar from "./components/layout/navbar/Navbar";
 import Controls from "./components/Ui/controls/Controls";
 
 function App() {
-  const [duration, setDuration] = useState(0.3);
-  const durationMin = 0.12;
-  const durationMax = 1.2;
-  const durationStep = 0.01;
+  const [collapseItemDuration, setCollapseItemDuration] = useState(0.3);
+  const collapseItemDurationMin = 0.12;
+  const collapseItemDurationMax = 1.2;
+  const collapseItemDurationStep = 0.01;
+  const [expandItemDuration, setExpandItemDuration] = useState(0.3);
+  const expandItemDurationMin = 0.12;
+  const expandItemDurationMax = 1.2;
+  const expandItemDurationStep = 0.01;
   const [activeBackgroundDuration, setActiveBackgroundDuration] = useState(0.3);
   const activeBackgroundDurationMin = 0.05;
   const activeBackgroundDurationMax = 5;
@@ -41,7 +45,8 @@ function App() {
   return (
     <div className="container">
       <Navbar
-        duration={duration}
+        collapseItemDuration={collapseItemDuration}
+        expandItemDuration={expandItemDuration}
         activeBackgroundDuration={activeBackgroundDuration}
         fadeDuration={fadeDuration}
         fadeOutDuration={fadeOutDuration}
@@ -52,11 +57,16 @@ function App() {
       />
       {show && (
         <Controls
-          duration={duration}
-          setDuration={setDuration}
-          min={durationMin}
-          max={durationMax}
-          step={durationStep}
+          collapseItemDuration={collapseItemDuration}
+          setCollapseItemDuration={setCollapseItemDuration}
+          collapseItemMin={collapseItemDurationMin}
+          collapseItemMax={collapseItemDurationMax}
+          collapseItemStep={collapseItemDurationStep}
+          expandItemDuration={expandItemDuration}
+          setExpandItemDuration={setExpandItemDuration}
+          expandItemMin={expandItemDurationMin}
+          expandItemMax={expandItemDurationMax}
+          expandItemStep={expandItemDurationStep}
           activeBackgroundDuration={activeBackgroundDuration}
           setActiveBackgroundDuration={setActiveBackgroundDuration}
           activeBackgroundMin={activeBackgroundDurationMin}

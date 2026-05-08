@@ -20,7 +20,8 @@ const NavItem = forwardRef(function NavItem(
     collapsedShowLabel = false,
     iconSize = 24,
     labelGap = 8,
-    duration = 0.3,
+    collapseItemDuration = 0.3,
+    expandItemDuration = 0.3,
     activeBackgroundDuration = 0.3,
     fadeDuration = 0.15,
     fadeOutDuration = 0.15,
@@ -28,11 +29,16 @@ const NavItem = forwardRef(function NavItem(
   },
   ref,
 ) {
-  const normalizedDuration = Math.min(
-    Math.max(Number(duration) || 0.3, 0.05),
+  const normalizedCollapseItemDuration = Math.min(
+    Math.max(Number(collapseItemDuration) || 0.3, 0.05),
     3,
   );
-  const durationScale = normalizedDuration / 0.38;
+  const normalizedExpandItemDuration = Math.min(
+    Math.max(Number(expandItemDuration) || 0.3, 0.05),
+    3,
+  );
+  const collapseItemDurationScale = normalizedCollapseItemDuration / 0.38;
+  const expandItemDurationScale = normalizedExpandItemDuration / 0.38;
   const normalizedFadeDuration = Math.min(
     Math.max(Number(fadeDuration) || 0.15, 0.05),
     3,
@@ -133,14 +139,18 @@ const NavItem = forwardRef(function NavItem(
         }}
         transition={{
           width: {
-            duration: (collapseTitle ? 0.33 : 0.28) * durationScale,
+            duration: collapseTitle
+              ? 0.33 * collapseItemDurationScale
+              : 0.28 * expandItemDurationScale,
             ease: "easeInOut",
             delay: collapseTitle ? 0.08 : 0,
           },
           marginLeft: {
-            duration: (collapseTitle ? 0.2 : 0.18) * durationScale,
+            duration: collapseTitle
+              ? 0.2 * collapseItemDurationScale
+              : 0.18 * expandItemDurationScale,
             ease: "easeInOut",
-            delay: collapseTitle ? 0.2 * durationScale : 0,
+            delay: collapseTitle ? 0.2 * collapseItemDurationScale : 0,
           },
         }}
         style={{

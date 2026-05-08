@@ -23,7 +23,8 @@ const getNormalizedDuration = (duration) =>
 // };
 
 const Navbar = ({
-  duration = DEFAULT_LAYOUT_DURATION,
+  collapseItemDuration = DEFAULT_LAYOUT_DURATION,
+  expandItemDuration = DEFAULT_LAYOUT_DURATION,
   activeBackgroundDuration = 0.3,
   fadeDuration = DEFAULT_LAYOUT_DURATION,
   fadeOutDuration = DEFAULT_LAYOUT_DURATION,
@@ -32,7 +33,7 @@ const Navbar = ({
   dropdownDuration = 0.25,
   popupBorderDuration = 0.2,
 }) => {
-  const normalizedDuration = getNormalizedDuration(duration);
+  const normalizedDuration = getNormalizedDuration(expandItemDuration);
   const navbarLayoutTransition = {
     layout: {
       duration: normalizedDuration,
@@ -155,7 +156,8 @@ const Navbar = ({
       isFirstHovered={isFirstHovered}
       setIsFirstHovered={setIsFirstHovered}
       firstItemTitle={navLinks[0].title}
-      duration={normalizedDuration}
+      collapseItemDuration={collapseItemDuration}
+      expandItemDuration={expandItemDuration}
       activeBackgroundDuration={activeBackgroundDuration}
       fadeDuration={fadeDuration}
       fadeOutDuration={fadeOutDuration}

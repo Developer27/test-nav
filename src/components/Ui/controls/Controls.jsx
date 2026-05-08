@@ -1,11 +1,16 @@
 import styles from "./Controls.module.css";
 
 const Controls = ({
-  duration,
-  setDuration,
-  min = 0.12,
-  max = 1.2,
-  step = 0.01,
+  collapseItemDuration,
+  setCollapseItemDuration,
+  collapseItemMin = 0.12,
+  collapseItemMax = 1.2,
+  collapseItemStep = 0.01,
+  expandItemDuration,
+  setExpandItemDuration,
+  expandItemMin = 0.12,
+  expandItemMax = 1.2,
+  expandItemStep = 0.01,
   activeBackgroundDuration,
   setActiveBackgroundDuration,
   activeBackgroundMin = 0.05,
@@ -42,16 +47,20 @@ const Controls = ({
   popupBorderMax = 1.2,
   popupBorderStep = 0.01,
 }) => {
-  const normalizedDuration = Math.min(
-    Math.max(Number(duration) || min, min),
-    max,
-  );
   const normalizedActiveBackgroundDuration = Math.min(
     Math.max(
       Number(activeBackgroundDuration) || activeBackgroundMin,
       activeBackgroundMin,
     ),
     activeBackgroundMax,
+  );
+  const normalizedCollapseItemDuration = Math.min(
+    Math.max(Number(collapseItemDuration) || collapseItemMin, collapseItemMin),
+    collapseItemMax,
+  );
+  const normalizedExpandItemDuration = Math.min(
+    Math.max(Number(expandItemDuration) || expandItemMin, expandItemMin),
+    expandItemMax,
   );
   const normalizedFadeDuration = Math.min(
     Math.max(Number(fadeDuration) || fadeMin, fadeMin),
@@ -81,16 +90,28 @@ const Controls = ({
   return (
     <div className={styles.controlsContainer}>
       <label className={styles.controlLabel}>
-        <span>Collapse/Expand Duration</span>
+        <span>Collapse item duration</span>
         <input
           type="range"
-          min={min}
-          max={max}
-          step={step}
-          value={normalizedDuration}
-          onChange={(e) => setDuration(Number(e.target.value))}
+          min={collapseItemMin}
+          max={collapseItemMax}
+          step={collapseItemStep}
+          value={normalizedCollapseItemDuration}
+          onChange={(e) => setCollapseItemDuration(Number(e.target.value))}
         />
-        <p>{normalizedDuration.toFixed(2)}s</p>
+        <p>{normalizedCollapseItemDuration.toFixed(2)}s</p>
+      </label>
+      <label className={styles.controlLabel}>
+        <span>Expand item duration</span>
+        <input
+          type="range"
+          min={expandItemMin}
+          max={expandItemMax}
+          step={expandItemStep}
+          value={normalizedExpandItemDuration}
+          onChange={(e) => setExpandItemDuration(Number(e.target.value))}
+        />
+        <p>{normalizedExpandItemDuration.toFixed(2)}s</p>
       </label>
       <label className={styles.controlLabel}>
         <span>Active nav item background duration</span>
