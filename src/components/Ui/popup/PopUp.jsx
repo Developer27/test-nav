@@ -118,11 +118,20 @@ const PopUp = ({
               {TAB_MODES.map((mode) => {
                 const isSelected = selectedMode === mode.id;
                 return (
-                  <div
+                  <motion.div
                     key={mode.id}
                     className={`${styles.popUpRadioContainer} ${isSelected ? styles.popUpRadioContainerActive : ""}`}
                     onClick={() => {
                       setSelectedMode(mode.id);
+                    }}
+                    whileHover={{
+                      background: !isSelected
+                        ? "rgba(58, 252, 234, 0.04)"
+                        : "transparent",
+                    }}
+                    transition={{
+                      duration: 0.8,
+                      ease: [0.22, 1, 0.36, 1],
                     }}
                   >
                     {isSelected && (
@@ -153,7 +162,7 @@ const PopUp = ({
                         mode={mode.id}
                       />
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
               <div className={styles.popUpFooter}>

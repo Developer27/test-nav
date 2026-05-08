@@ -176,6 +176,7 @@
   z-index: 200;
 }
 
+
 .activeOutline::before {
   content: "";
   position: absolute;
@@ -197,6 +198,7 @@
   box-sizing: border-box;
   cursor: pointer;
 }
+
 
 .popUpRadioContainerActive {
   z-index: 50;
