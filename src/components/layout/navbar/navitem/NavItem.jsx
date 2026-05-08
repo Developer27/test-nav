@@ -20,18 +20,18 @@ const NavItem = forwardRef(function NavItem(
     collapsedShowLabel = false,
     iconSize = 24,
     labelGap = 8,
-    collapseItemDuration = 0.3,
+    collapseItemDuration = 0.2,
     expandItemDuration = 0.3,
     activeBackgroundDuration = 0.3,
-    fadeDuration = 0.15,
-    fadeOutDuration = 0.15,
+    fadeDuration = 0.25,
+    fadeOutDuration = 0.3,
     hoverEnterDuration = 0.15,
-    hoverExitDuration = 0.15,
+    hoverExitDuration = 0.4,
   },
   ref,
 ) {
   const normalizedCollapseItemDuration = Math.min(
-    Math.max(Number(collapseItemDuration) || 0.3, 0.05),
+    Math.max(Number(collapseItemDuration) || 0.2, 0.05),
     3,
   );
   const normalizedExpandItemDuration = Math.min(
@@ -41,11 +41,11 @@ const NavItem = forwardRef(function NavItem(
   const collapseItemDurationScale = normalizedCollapseItemDuration / 0.38;
   const expandItemDurationScale = normalizedExpandItemDuration / 0.38;
   const normalizedFadeDuration = Math.min(
-    Math.max(Number(fadeDuration) || 0.15, 0.05),
+    Math.max(Number(fadeDuration) || 0.25, 0.05),
     3,
   );
   const normalizedFadeOutDuration = Math.min(
-    Math.max(Number(fadeOutDuration) || 0.15, 0.05),
+    Math.max(Number(fadeOutDuration) || 0.3, 0.05),
     3,
   );
   const normalizedActiveBackgroundDuration = Math.min(
@@ -57,7 +57,7 @@ const NavItem = forwardRef(function NavItem(
     3,
   );
   const normalizedHoverExitDuration = Math.min(
-    Math.max(Number(hoverExitDuration) || 0.15, 0.05),
+    Math.max(Number(hoverExitDuration) || 0.4, 0.05),
     3,
   );
   const effectiveHoverExitDuration = Math.max(

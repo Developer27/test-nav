@@ -1,7 +1,7 @@
 import NavItem from "../../layout/navbar/navitem/NavItem";
 import styles from "./PopUpTabs.module.css";
 import Divider from "../divider/Divider";
-import EllipsesIcon from "../../icons/EllipsesIcon";
+import DropDownArrowDownIcon from "../../icons/DropDownArrowDownIcon";
 
 const PopUpTabs = ({ navLinks, activeItem, mode }) => {
   if (mode === "collapsed" || mode === "priorityTabs") {
@@ -61,7 +61,11 @@ const PopUpTabs = ({ navLinks, activeItem, mode }) => {
             aria-hidden
             title="other items"
           >
-            <EllipsesIcon size={10} />
+            <span className={styles.popUpOverflowPreviewText}>More</span>
+            <DropDownArrowDownIcon
+              size={9}
+              className={styles.popUpOverflowPreviewIcon}
+            />
           </div>
         )}
       </div>

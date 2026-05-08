@@ -4,12 +4,15 @@ import { motion, AnimatePresence } from "framer-motion";
 const FadeText = ({
   text,
   show,
-  duration = 0.15,
+  duration = 0.25,
   enterDuration,
   exitDuration,
   className = "",
 }) => {
-  const fallbackDuration = Math.min(Math.max(Number(duration) || 0.15, 0.05), 3);
+  const fallbackDuration = Math.min(
+    Math.max(Number(duration) || 0.25, 0.05),
+    3,
+  );
   const normalizedEnterDuration = Math.min(
     Math.max(Number(enterDuration) || fallbackDuration, 0.05),
     3,

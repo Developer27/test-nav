@@ -13,7 +13,12 @@ import NavItemSegment from "./navItemSegment/NavItemSegment";
 
 const PRIMARY_COLLAPSED_COUNT = 4;
 
+const DEFAULT_COLLAPSE_DURATION = 0.2;
 const DEFAULT_LAYOUT_DURATION = 0.3;
+const DEFAULT_FADE_IN_DURATION = 0.25;
+const DEFAULT_FADE_OUT_DURATION = 0.3;
+const DEFAULT_HOVER_ENTER_DURATION = 0.15;
+const DEFAULT_HOVER_EXIT_DURATION = 0.4;
 const getNormalizedDuration = (duration) =>
   Math.min(Math.max(Number(duration) || DEFAULT_LAYOUT_DURATION, 0.05), 3);
 
@@ -23,13 +28,13 @@ const getNormalizedDuration = (duration) =>
 // };
 
 const Navbar = ({
-  collapseItemDuration = DEFAULT_LAYOUT_DURATION,
+  collapseItemDuration = DEFAULT_COLLAPSE_DURATION,
   expandItemDuration = DEFAULT_LAYOUT_DURATION,
   activeBackgroundDuration = 0.3,
-  fadeDuration = DEFAULT_LAYOUT_DURATION,
-  fadeOutDuration = DEFAULT_LAYOUT_DURATION,
-  hoverEnterDuration = 0.15,
-  hoverExitDuration = 0.15,
+  fadeDuration = DEFAULT_FADE_IN_DURATION,
+  fadeOutDuration = DEFAULT_FADE_OUT_DURATION,
+  hoverEnterDuration = DEFAULT_HOVER_ENTER_DURATION,
+  hoverExitDuration = DEFAULT_HOVER_EXIT_DURATION,
   modalDuration = 0.2,
   dropdownDuration = 0.25,
   popupBorderDuration = 0.2,
