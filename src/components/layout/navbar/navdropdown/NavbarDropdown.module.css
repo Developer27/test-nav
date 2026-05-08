@@ -17,7 +17,7 @@
     background-color var(--hover-duration, 0.2s) ease;
 }
 
-.dropdownTrigger:hover {
+.dropdownTrigger:not(.dropdownTriggerOpen):not(.dropdownTriggerHasActiveInMenu):hover {
   color: rgba(255, 255, 255, 1);
 }
 
@@ -38,7 +38,7 @@
   transition: color var(--hover-duration, 0.2s) ease;
 }
 
-.dropdownTrigger:hover .dropdownTriggerIcon {
+.dropdownTrigger:not(.dropdownTriggerOpen):not(.dropdownTriggerHasActiveInMenu):hover .dropdownTriggerIcon {
   color: inherit;
 }
 
