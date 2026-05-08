@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 2px;
   min-width: 40px;
   height: 100%;
   align-self: stretch;
@@ -12,7 +13,8 @@
   cursor: pointer;
   color: rgba(155, 157, 162, 1);
   border-radius: 0 6px 6px 0;
-  transition: color 0.3s ease, background-color 0.2s ease;
+  transition: color var(--hover-duration, 0.3s) ease,
+    background-color var(--hover-duration, 0.2s) ease;
 }
 
 .dropdownTrigger:hover {
@@ -25,11 +27,32 @@
   border-radius: 0 6px 6px 0;
 }
 
+.dropdownTriggerText {
+  font-size: 8.75px;
+  font-weight: 500;
+  color: inherit;
+}
+
+.dropdownTriggerIcon {
+  color: rgba(155, 157, 162, 1);
+  transition: color var(--hover-duration, 0.2s) ease;
+}
+
+.dropdownTrigger:hover .dropdownTriggerIcon {
+  color: inherit;
+}
+
+.dropdownTriggerOpen .dropdownTriggerIcon,
+.dropdownTriggerHasActiveInMenu .dropdownTriggerIcon {
+  color: inherit;
+}
+
 .dropdownTriggerHasActiveInMenu {
   color: rgba(211, 248, 90, 0.85);
   background-color: rgba(255, 255, 255, 0.04);
   border-radius: 0 6px 6px 0;
 }
+
 
 .dropdownMenu {
   position: absolute;

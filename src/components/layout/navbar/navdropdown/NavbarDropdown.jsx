@@ -4,11 +4,25 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./NavbarDropdown.module.css";
 import { createPortal } from "react-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import EllipsesIcon from "../../../icons/EllipsesIcon";
 import { useClickOutside } from "../../../../hooks/useClickOutside";
 import { useResponsivePosition } from "../../../../hooks/useResponsivePosition";
+import DropDownArrowDownIcon from "../../../icons/DropDownArrowDownIcon";
 
-const NavbarDropdown = ({ dropdownItems, activeItem, setActiveItem }) => {
+const NavbarDropdown = ({
+  dropdownItems,
+  activeItem,
+  setActiveItem,
+  dropdownDuration = 0.2,
+  hoverDuration = 0.3,
+}) => {
+  const normalizedDropdownDuration = Math.min(
+    Math.max(Number(dropdownDuration) || 0.2, 0.05),
+    3,
+  );
+  const normalizedHoverDuration = Math.min(
+    Math.max(Number(hoverDuration) || 0.3, 0.05),
+    3,
+  );
   const anchorRef = useRef(null);
   const menuRef = useRef(null);
   const [open, setOpen] = useState(false);
@@ -49,6 +63,9 @@ const NavbarDropdown = ({ dropdownItems, activeItem, setActiveItem }) => {
         type="button"
         ref={anchorRef}
         className={`${styles.dropdownTrigger} ${open ? styles.dropdownTriggerOpen : ""} ${hasActiveItemInDropdown ? styles.dropdownTriggerHasActiveInMenu : ""}`}
+        style={{
+          "--hover-duration": `${normalizedHoverDuration}s`,
+        }}
         aria-expanded={open}
         aria-haspopup="menu"
         aria-label="more navigation items"
@@ -56,7 +73,22 @@ const NavbarDropdown = ({ dropdownItems, activeItem, setActiveItem }) => {
           setOpen((prev) => !prev);
         }}
       >
-        <EllipsesIcon size={16} />
+        <span className={styles.dropdownTriggerText}>More</span>
+        <motion.span
+          animate={{
+            rotate: open ? 180 : 0,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+            damping: 20,
+          }}
+        >
+          <DropDownArrowDownIcon
+            size={12}
+            className={styles.dropdownTriggerIcon}
+          />
+        </motion.span>
       </button>
       {createPortal(
         <AnimatePresence>
@@ -86,7 +118,7 @@ const NavbarDropdown = ({ dropdownItems, activeItem, setActiveItem }) => {
                 y: -4,
               }}
               transition={{
-                duration: 0.2,
+                duration: normalizedDropdownDuration,
                 ease: [0.22, 1, 0.36, 1],
               }}
             >

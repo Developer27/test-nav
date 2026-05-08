@@ -24,7 +24,12 @@ const getNormalizedDuration = (duration) =>
 
 const Navbar = ({
   duration = DEFAULT_LAYOUT_DURATION,
+  activeBackgroundDuration = 1,
   fadeDuration = DEFAULT_LAYOUT_DURATION,
+  hoverDuration = 0.3,
+  modalDuration = 0.2,
+  dropdownDuration = 0.2,
+  popupBorderDuration = 0.2,
 }) => {
   const normalizedDuration = getNormalizedDuration(duration);
   const navbarLayoutTransition = {
@@ -150,7 +155,9 @@ const Navbar = ({
       setIsFirstHovered={setIsFirstHovered}
       firstItemTitle={navLinks[0].title}
       duration={normalizedDuration}
+      activeBackgroundDuration={activeBackgroundDuration}
       fadeDuration={fadeDuration}
+      hoverDuration={hoverDuration}
       layoutTransition={navbarLayoutTransition}
     />
   );
@@ -193,6 +200,8 @@ const Navbar = ({
                         dropdownItems={dropdownLinks}
                         activeItem={activeItem}
                         setActiveItem={setActiveItem}
+                        dropdownDuration={dropdownDuration}
+                        hoverDuration={hoverDuration}
                       />
                     </motion.div>,
                   );
@@ -240,6 +249,8 @@ const Navbar = ({
         setIsPopUpOpen={setIsPopUpOpen}
         setTabsMode={setTabsMode}
         tabsMode={tabsMode}
+        modalDuration={modalDuration}
+        popupBorderDuration={popupBorderDuration}
       />
     </div>
   );

@@ -15,9 +15,19 @@ const PopUp = ({
   setIsPopUpOpen,
   setTabsMode,
   tabsMode,
+  modalDuration = 0.2,
+  popupBorderDuration = 0.2,
 }) => {
   const popUpRef = useRef(null);
   const [selectedMode, setSelectedMode] = useState(tabsMode);
+  const normalizedModalDuration = Math.min(
+    Math.max(Number(modalDuration) || 0.2, 0.05),
+    3,
+  );
+  const normalizedPopupBorderDuration = Math.min(
+    Math.max(Number(popupBorderDuration) || 0.2, 0.05),
+    3,
+  );
   const closeWithoutSave = useCallback(() => {
     setSelectedMode(tabsMode);
     setIsPopUpOpen(false);
@@ -49,7 +59,7 @@ const PopUp = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: normalizedModalDuration }}
         >
           <motion.div
             ref={popUpRef}
@@ -70,7 +80,7 @@ const PopUp = ({
               y: -5,
             }}
             transition={{
-              duration: 0.2,
+              duration: normalizedModalDuration,
               ease: [0.22, 1, 0.36, 1],
             }}
           >
@@ -121,7 +131,7 @@ const PopUp = ({
                         className={styles.activeOutline}
                         transition={{
                           type: "tween",
-                          duration: 0.2,
+                          duration: normalizedPopupBorderDuration,
                         }}
                         // transition={{
                         //   type: "spring",

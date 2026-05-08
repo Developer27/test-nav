@@ -21,7 +21,9 @@ const NavItem = forwardRef(function NavItem(
     iconSize = 24,
     labelGap = 8,
     duration = 0.25,
+    activeBackgroundDuration = 1,
     fadeDuration = 0.25,
+    hoverDuration = 0.3,
   },
   ref,
 ) {
@@ -32,6 +34,14 @@ const NavItem = forwardRef(function NavItem(
   const durationScale = normalizedDuration / 0.38;
   const normalizedFadeDuration = Math.min(
     Math.max(Number(fadeDuration) || 0.25, 0.05),
+    3,
+  );
+  const normalizedActiveBackgroundDuration = Math.min(
+    Math.max(Number(activeBackgroundDuration) || 1, 0.05),
+    3,
+  );
+  const normalizedHoverDuration = Math.min(
+    Math.max(Number(hoverDuration) || 0.3, 0.05),
     3,
   );
   const isExpanded = hoveredItem === title || isActive || isFirstHovered;
@@ -54,6 +64,9 @@ const NavItem = forwardRef(function NavItem(
       ref={ref}
       className={`${styles.navItemContainer} ${isForDisplayOnly ? styles.displayOnlyNavItemContainer : ""} ${positionClass}`}
       role={isForDisplayOnly ? "presentation" : undefined}
+      style={{
+        "--hover-duration": `${normalizedHoverDuration}s`,
+      }}
       onClick={
         isForDisplayOnly
           ? undefined
@@ -83,11 +96,15 @@ const NavItem = forwardRef(function NavItem(
         }}
         transition={{
           opacity: {
-            duration: isActive ? 1 : 0.8,
+            duration: isActive
+              ? normalizedActiveBackgroundDuration
+              : normalizedActiveBackgroundDuration * 0.8,
             ease: [0.22, 1, 0.36, 1],
           },
           scale: {
-            duration: isActive ? 0.1 : 0.05,
+            duration: isActive
+              ? normalizedActiveBackgroundDuration
+              : normalizedActiveBackgroundDuration * 0.8,
             ease: [0.22, 1, 0.36, 1],
           },
         }}

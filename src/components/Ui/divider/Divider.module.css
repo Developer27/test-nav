@@ -1,11 +1,13 @@
 .divider { 
   height: 12px;
   width: 1px;
+  flex: 0 0 1px;
   background-color: rgba(255, 255, 255, 0.06);
   opacity: 1;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, width 0.2s ease, flex-basis 0.2s ease;
 }
 
 .hiddenDivider {
   opacity: 0;
+  pointer-events: none;
 }

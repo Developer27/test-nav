@@ -6,25 +6,73 @@ const Controls = ({
   min = 0.12,
   max = 1.2,
   step = 0.01,
+  activeBackgroundDuration,
+  setActiveBackgroundDuration,
+  activeBackgroundMin = 0.05,
+  activeBackgroundMax = 2,
+  activeBackgroundStep = 0.01,
   fadeDuration,
   setFadeDuration,
   fadeMin = 0.12,
   fadeMax = 1.2,
   fadeStep = 0.01,
+  hoverDuration,
+  setHoverDuration,
+  hoverMin = 0.05,
+  hoverMax = 1.2,
+  hoverStep = 0.01,
+  modalDuration,
+  setModalDuration,
+  modalMin = 0.05,
+  modalMax = 1.2,
+  modalStep = 0.01,
+  dropdownDuration,
+  setDropdownDuration,
+  dropdownMin = 0.05,
+  dropdownMax = 1.2,
+  dropdownStep = 0.01,
+  popupBorderDuration,
+  setPopupBorderDuration,
+  popupBorderMin = 0.05,
+  popupBorderMax = 1.2,
+  popupBorderStep = 0.01,
 }) => {
   const normalizedDuration = Math.min(
     Math.max(Number(duration) || min, min),
     max,
   );
+  const normalizedActiveBackgroundDuration = Math.min(
+    Math.max(
+      Number(activeBackgroundDuration) || activeBackgroundMin,
+      activeBackgroundMin,
+    ),
+    activeBackgroundMax,
+  );
   const normalizedFadeDuration = Math.min(
     Math.max(Number(fadeDuration) || fadeMin, fadeMin),
     fadeMax,
+  );
+  const normalizedHoverDuration = Math.min(
+    Math.max(Number(hoverDuration) || hoverMin, hoverMin),
+    hoverMax,
+  );
+  const normalizedModalDuration = Math.min(
+    Math.max(Number(modalDuration) || modalMin, modalMin),
+    modalMax,
+  );
+  const normalizedDropdownDuration = Math.min(
+    Math.max(Number(dropdownDuration) || dropdownMin, dropdownMin),
+    dropdownMax,
+  );
+  const normalizedPopupBorderDuration = Math.min(
+    Math.max(Number(popupBorderDuration) || popupBorderMin, popupBorderMin),
+    popupBorderMax,
   );
 
   return (
     <div className={styles.controlsContainer}>
       <label className={styles.controlLabel}>
-        <span>Duration</span>
+        <span>Collapse/Expand Duration</span>
         <input
           type="range"
           min={min}
@@ -34,6 +82,18 @@ const Controls = ({
           onChange={(e) => setDuration(Number(e.target.value))}
         />
         <p>{normalizedDuration.toFixed(2)}s</p>
+      </label>
+      <label className={styles.controlLabel}>
+        <span>Active nav item background duration</span>
+        <input
+          type="range"
+          min={activeBackgroundMin}
+          max={activeBackgroundMax}
+          step={activeBackgroundStep}
+          value={normalizedActiveBackgroundDuration}
+          onChange={(e) => setActiveBackgroundDuration(Number(e.target.value))}
+        />
+        <p>{normalizedActiveBackgroundDuration.toFixed(2)}s</p>
       </label>
       <label className={styles.controlLabel}>
         <span>Fade text duration</span>
@@ -46,6 +106,54 @@ const Controls = ({
           onChange={(e) => setFadeDuration(Number(e.target.value))}
         />
         <p>{normalizedFadeDuration.toFixed(2)}s</p>
+      </label>
+      <label className={styles.controlLabel}>
+        <span>Nav item hover duration</span>
+        <input
+          type="range"
+          min={hoverMin}
+          max={hoverMax}
+          step={hoverStep}
+          value={normalizedHoverDuration}
+          onChange={(e) => setHoverDuration(Number(e.target.value))}
+        />
+        <p>{normalizedHoverDuration.toFixed(2)}s</p>
+      </label>
+      <label className={styles.controlLabel}>
+        <span>Modal open/close duration</span>
+        <input
+          type="range"
+          min={modalMin}
+          max={modalMax}
+          step={modalStep}
+          value={normalizedModalDuration}
+          onChange={(e) => setModalDuration(Number(e.target.value))}
+        />
+        <p>{normalizedModalDuration.toFixed(2)}s</p>
+      </label>
+      <label className={styles.controlLabel}>
+        <span>Dropdown open/close duration</span>
+        <input
+          type="range"
+          min={dropdownMin}
+          max={dropdownMax}
+          step={dropdownStep}
+          value={normalizedDropdownDuration}
+          onChange={(e) => setDropdownDuration(Number(e.target.value))}
+        />
+        <p>{normalizedDropdownDuration.toFixed(2)}s</p>
+      </label>
+      <label className={styles.controlLabel}>
+        <span>Modal active border duration</span>
+        <input
+          type="range"
+          min={popupBorderMin}
+          max={popupBorderMax}
+          step={popupBorderStep}
+          value={normalizedPopupBorderDuration}
+          onChange={(e) => setPopupBorderDuration(Number(e.target.value))}
+        />
+        <p>{normalizedPopupBorderDuration.toFixed(2)}s</p>
       </label>
     </div>
   );
